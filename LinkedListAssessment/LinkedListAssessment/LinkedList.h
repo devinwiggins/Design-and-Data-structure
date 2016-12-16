@@ -185,17 +185,25 @@ inline void linkedListType<Type>::destroyList()
 
 	nodeType<Type> *currentNode;
 	currentNode = first;
-
-	while (currentNode != NULL)
+	if (last->link == nullptr)
 	{
-		nodeType<Type>* tmp = NULL;
-		currentNode = tmp; // deletes the current node
-		delete tmp;
-		currentNode = currentNode->link; // iterates through the list
+		return;
 	}
-	first = NULL;
-	last = NULL;
-	count = 0;
+	else 
+	{
+
+
+		while (currentNode != NULL)
+		{
+			nodeType<Type>* tmp = NULL;
+			currentNode = tmp; // deletes the current node
+			delete tmp;
+			currentNode = currentNode->link; // iterates through the list
+		}
+		first = NULL;
+		last = NULL;
+		count = 0;
+	}
 }
 
 template<typename Type>

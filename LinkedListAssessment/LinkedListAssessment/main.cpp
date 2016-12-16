@@ -1,66 +1,49 @@
 #include <iostream>
 #include "linkedlist.h"
 
-
-
-
-//
-//void Add(int NewData, nodeType NodeBefore, nodeType NodeAfter)
-//{
-//	nodeType* newNode = new nodeType;
-//	nodeType node;
-//	
-//	newNode = &node;
-//	node.info = NewData;
-//
-//	node.link = &NodeAfter;
-//
-//	NodeBefore.link = &node;
-//
-//}
+using namespace std;
 
 int main()
 {
-	//nodeType* head = new nodeType;
-	//nodeType a, b, c;
 
-	//a.info = 0;
-	//b.info = 2;
-	//c.info = 4; // setting data to these nodes
-	//
-	//head = &c; // head will be the current node setting it equal to the address of the first node(last in "first" out)
-	// //will allow me to be able to use a while loop to iterate through the list 
-
-	//c.link = &b;//points current node (c) to the address of the data of the next node
-
-
-	//b.link = &a;
-	//a.link = nullptr; // ends the stack with a nullptr
-	//Add(6, c, b);
-	//while (head != nullptr)
-	//{
-	//	std::cout << head->info << std::endl; //prints the data of the nodes while the conditions of the while loop is met
-	//	head = head->link; //iterates through the list
-	//}
-
+	
+	cout << "example of a list with no nodes: " << "\n";
 	linkedListType<int> list = linkedListType<int>();
-	linkedListType<int> list2 = linkedListType<int>();
-	list.insertFirst(4); // last
-	list.insertFirst(1);
-	list.insertFirst(2);
-	list.insertFirst(1); // first
-
-	list.insertLast(5);
-	list.insertLast(1);
-	//list.search(6);
-	//td::cout << list.front();
-	//list.destroyList();
-
-	list.deleteNode(1);
-	//list2 = list;
+	list.initializeList();
 	list.print();
-	//std::cout << list2.back();
-	//list2.print();
+	cout << "\n--------------------------------------------------------------------\n";
+	cout << "after adding the node 5 to list: " << "\n";
+	list.insertFirst(5);
+	list.print();
+	cout << "\n--------------------------------------------------------------------\n";
+	cout << "deleting the node 5(being the first and only node): \n\n";
+	list.deleteNode(5);
+	list.print();
+	cout << "\n--------------------------------------------------------------------\n";
+	cout << " adding 3 nodes: 1, 3, and 5...\n";
+	list.insertFirst(1);
+	list.insertFirst(3);
+	list.insertFirst(5);
+	list.print();
+	cout << "\n--------------------------------------------------------------------\n";
+	cout << " all of these nodes were added through the front of the list or top\n";
+	cout << " these three nodes are added through the back or bottom of the list: 9, 6, and 7\n";
+	list.insertLast(9);
+	list.insertLast(6);
+	list.insertLast(7);
+	list.print();
+	cout << "\n--------------------------------------------------------------------\n";
+	cout << " now i will demonstrate my destroylist function by completely destroying this list\n";
+	cout << "but first i will show the first and last nodes in the list in case you forgot\n";
+	cout << "\nfirst: \n";
+	cout << list.front();
+	cout << "\nlast: \n";
+	cout << list.front() << "\n";
+
+	cout << "now the list is destroyed: \n";
+	list.destroyList();
+	list.print();
+
 	system("pause");
 	return 0;
 }
